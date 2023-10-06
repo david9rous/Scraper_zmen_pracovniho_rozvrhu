@@ -13,5 +13,4 @@ cells = []
 rows = schedule.find_all('<tr>')
 for row in rows:
     print(row)
-#zmena pro commit
 
