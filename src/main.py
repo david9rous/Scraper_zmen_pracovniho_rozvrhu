@@ -8,7 +8,7 @@ if webpage.status_code == 200:
 else:
     print("Neco se pokazilo.")
 table = BeautifulSoup(webpage.content, 'html.parser')
-schedule = table.find('table', {'class': 'datagrid'})
+schedule = table.find_all('table', {'class': 'datagrid'})
 cells = []
 rows = schedule.find_all('<tr>')
 for row in rows:
