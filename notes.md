@@ -1,16 +1,16 @@
-Původní deadline: 6. 10. 2023
+**Deadline:** 6. 10. 2023
 
-Vedoucí: David Rouš
- 
-Cíl: 
+**Vedoucí:** David Rouš
+
+**Cíl:**
 Program nebo skript, který vyjme požadované informace z webové stránky a zobrazí je odděleně od zbytku dat.
 
-Dílčí cíle:
-Dostat data ze stránky do programu. OK
+**Dílčí cíle:**
+Dostat data ze stránky do programu. **OK** 
 Vyfiltrovat data v tabulce uvnitř programu. 
 Zobrazit přesně požadovaná data vedle sebe v konzoli.
 Vytvořit uživatelské rozhraní pro zobrazení dat.
 Vytvořit spustitelnou aplikaci s ikonou na ploše.
 
-Poznámky:
- 
+**Poznámky:**
+
