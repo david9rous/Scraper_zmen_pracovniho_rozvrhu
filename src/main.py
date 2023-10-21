@@ -9,7 +9,6 @@ else:
     print("Neco se pokazilo.")
 table = BeautifulSoup(webpage.content, 'html.parser')
 schedule = table.find_all('table', {'class': 'datagrid'})
-cells = []
-rows = schedule.find_all('<tr>')
-for row in rows:
-    print(row)
+text = 'Rouš'
+for i in schedule:
+    element = i.find(text)
