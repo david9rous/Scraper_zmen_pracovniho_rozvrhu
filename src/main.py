@@ -1,3 +1,6 @@
+"""Scrapes the school website for changes in the schedule and prints them in the terminal."""
+
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -9,9 +12,9 @@ else:
     print("Neco se pokazilo.")
 soup = BeautifulSoup(url.content, 'html.parser')
 tables = soup.find_all('table', {'class': 'datagrid'})
-text = 'ABD'
+SEARCHED_TEXT = 'ABD'
 for table in tables:
     for row in table.find_all('tr'):
         for cell in row.find_all('td'):
-            if text in cell.text():
+            if SEARCHED_TEXT in cell.text():
                 print('Nalezeno')
