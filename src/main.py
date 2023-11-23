@@ -20,15 +20,17 @@ for table in tables:
             if SEARCHED_TEXT in cell.text:
                 sub_info = row.get_text()
 SUB_INFO = ' '.join(sub_info.split())
-print(SUB_INFO)
 TODAY_DATE = str(date.today())
-with open('src/stored_sub_info.csv', 'a+', encoding="utf-8") as file:
-    # contents = file.read()
-    # print(contents)
-    # if contents.__contains__(today_date) is False:
-    file.write('Datum: \n')
-    file.write(TODAY_DATE)
-    file.write('\n')
-    file.write('Zmeny: \n')
-    file.write(SUB_INFO)
-    file.write('\n\n')
+with open('data/stored_sub_info.txt', 'a+', encoding="utf-8") as file:
+
+    contents = file.read().split('Datum: ')
+    print(contents)
+    for ele in contents:
+        print(ele)
+        # if contents.__contains__(TODAY_DATE):
+        #     file.write('Datum: \n')
+        #     file.write(TODAY_DATE)
+        #     file.write('\n')
+        #     file.write('Zmeny: \n')
+        #     file.write(SUB_INFO)
+        #     file.write('\n\n')
