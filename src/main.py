@@ -22,8 +22,8 @@ for table in tables:
 SUB_INFO = ' '.join(sub_info.split())
 TODAY_DATE = str(date.today())
 with open('data/stored_sub_info.txt', 'a+', encoding="utf-8") as file:
-
-    contents = file.read().split('Datum: ')
+    file.seek(0)
+    contents = file.read()
     print(contents)
     for ele in contents:
         print(ele)
