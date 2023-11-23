@@ -12,9 +12,12 @@ else:
     print("Neco se pokazilo.")
 soup = BeautifulSoup(url.content, 'html.parser')
 tables = soup.find_all('table', {'class': 'datagrid'})
-SEARCHED_TEXT = 'absence'
+SEARCHED_TEXT = 'Hoppová'
 for table in tables:
     for row in table.find_all('tr'):
         for cell in row.find_all('td'):
             if SEARCHED_TEXT in cell.text:
-                print('Nalezeno')
+                print(row.prettify())
+                with open('stored_information.csv', 'a') as file:
+                    file.write(row)
+                    
