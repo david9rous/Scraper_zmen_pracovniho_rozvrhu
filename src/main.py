@@ -22,7 +22,7 @@ for table in tables:
 SUB_INFO = ' '.join(sub_info.split())
 print(SUB_INFO)
 TODAY_DATE = str(date.today())
-with open('stored_sub_info.csv', 'a+', encoding="utf-8") as file:
+with open('src/stored_sub_info.csv', 'a+', encoding="utf-8") as file:
     # contents = file.read()
     # print(contents)
     # if contents.__contains__(today_date) is False:
