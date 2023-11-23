@@ -13,7 +13,7 @@ else:
     print("Neco se pokazilo.")
 soup = BeautifulSoup(url.content, 'html.parser')
 tables = soup.find_all('table', {'class': 'datagrid'})
-SEARCHED_TEXT = 'Hoppová'
+SEARCHED_TEXT = 'Rouš'
 for table in tables:
     for row in table.find_all('tr'):
         for cell in row.find_all('td'):
