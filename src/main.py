@@ -13,18 +13,20 @@ if url.status_code == 200:
 else:
     print("Neco se pokazilo.")
 soup = BeautifulSoup(url.content, 'html.parser')
-tables = soup.find_all('table', {'class': 'datagrid'})
+subs_table = soup.find('th', string='Změny v rozvrzích učitelů')
+table = subs_table.find_parent('table')
 SEARCHED_TEXT = 'Rouš'
-for table in tables:
-    for row in table.find_all('tr'):
-        for cell in row.find_all('td'):
-            if SEARCHED_TEXT in cell.text:
-                sub_info = row.get_text()
-            else:
-                sub_info = 'Neni zadna zmena.'
+# for table in tables:
+for row in table.find_all('tr'):
+    for cell in row.find_all('td'):
+        if SEARCHED_TEXT in cell.text:
+            sub_info = row.get_text()
 sub_info = ' '.join(sub_info.split())
 sub_info = re.split(f'({SEARCHED_TEXT})', sub_info)
+if sub_info[0] == '':
+    sub_info = sub_info[1:]
 print(sub_info)
+
 TODAY_DATE = str(date.today())
 with open('data/stored_sub_info.txt', 'a+', encoding="utf-8") as file:
     file.seek(0)
@@ -37,3 +39,4 @@ with open('data/stored_sub_info.txt', 'a+', encoding="utf-8") as file:
         for i in sub_info:
             file.write(str(i))
         file.write('\n\n')
+
