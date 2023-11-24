@@ -2,6 +2,7 @@
 
 
 from datetime import date
+import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -19,18 +20,20 @@ for table in tables:
         for cell in row.find_all('td'):
             if SEARCHED_TEXT in cell.text:
                 sub_info = row.get_text()
-SUB_INFO = ' '.join(sub_info.split())
+            else:
+                sub_info = 'Neni zadna zmena.'
+sub_info = ' '.join(sub_info.split())
+sub_info = re.split(f'({SEARCHED_TEXT})', sub_info)
+print(sub_info)
 TODAY_DATE = str(date.today())
 with open('data/stored_sub_info.txt', 'a+', encoding="utf-8") as file:
     file.seek(0)
-    contents = file.read().split('Datum:')
-    print(contents)
-    for ele in contents:
-        print(ele)
-        if TODAY_DATE not in contents:
-            file.write('Datum: \n')
-            file.write(TODAY_DATE)
-            file.write('\n')
-            file.write('Zmeny: \n')
-            file.write(SUB_INFO)
-            file.write('\n\n')
+    contents = file.read()
+    if TODAY_DATE not in contents:
+        file.write('Datum: \n')
+        file.write(TODAY_DATE)
+        file.write('\n')
+        file.write('Zmeny: \n')
+        for i in sub_info:
+            file.write(str(i))
+        file.write('\n\n')
