@@ -15,7 +15,7 @@ else:
 soup = BeautifulSoup(url.content, 'html.parser')
 subs_table = soup.find('th', string='Změny v rozvrzích učitelů')
 table = subs_table.find_parent('table')
-SEARCHED_TEXT = 'Rouš'
+SEARCHED_TEXT = 'Kadlecová'
 # for table in tables:
 for row in table.find_all('tr'):
     for cell in row.find_all('td'):
@@ -40,3 +40,4 @@ with open('data/stored_sub_info.txt', 'a+', encoding="utf-8") as file:
             file.write(str(i))
         file.write('\n\n')
 
+ 
