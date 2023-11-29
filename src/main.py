@@ -30,7 +30,7 @@ else:
 for i in sub_info_list:
     print(i)
 TODAY_DATE = str(date.today())
-with open('data/stored_sub_info.txt', 'a+', encoding="utf-8") as file:
+with open('../data/stored_sub_info.txt', 'a+', encoding="utf-8") as file:
     file.seek(0)
     contents = file.read()
     if TODAY_DATE not in contents:
