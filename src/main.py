@@ -33,7 +33,6 @@ for i in sub_info_list:
 TODAY_DATE = str(date.today())
 src_path = os.path.dirname(os.path.abspath(__file__))
 sub_path = os.path.join(src_path, '../data/stored_sub_info.txt')
-print(sub_path)
 with open(sub_path, 'a+', encoding="utf-8") as file:
     file.seek(0)
     contents = file.read()
