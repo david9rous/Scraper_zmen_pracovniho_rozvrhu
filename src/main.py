@@ -15,18 +15,14 @@ else:
 soup = BeautifulSoup(url.content, 'html.parser')
 subs_table = soup.find('th', string='Změny v rozvrzích učitelů')
 table = subs_table.find_parent('table')
-SEARCHED_TEXT = 'Kadlecová'
-# for table in tables:
+SEARCHED_TEXT = 'Valicová'
 for row in table.find_all('tr'):
     for cell in row.find_all('td'):
         if SEARCHED_TEXT in cell.text:
-            sub_info = row.get_text()
-sub_info = ' '.join(sub_info.split())
-sub_info = re.split(f'({SEARCHED_TEXT})', sub_info)
-if sub_info[0] == '':
-    sub_info = sub_info[1:]
-print(sub_info)
-
+            sub_info = row
+sub_info_list = []
+for data in sub_info.find_all('tr'):
+    sub_info_list.append(data.get_text().split())
 TODAY_DATE = str(date.today())
 with open('data/stored_sub_info.txt', 'a+', encoding="utf-8") as file:
     file.seek(0)
