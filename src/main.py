@@ -1,6 +1,7 @@
 """Scrapes the school website for changes in the schedule and prints them in the terminal."""
 
 
+import os
 from datetime import date
 import requests
 from bs4 import BeautifulSoup
@@ -30,7 +31,10 @@ else:
 for i in sub_info_list:
     print(i)
 TODAY_DATE = str(date.today())
-with open('../data/stored_sub_info.txt', 'a+', encoding="utf-8") as file:
+src_path = os.path.dirname(os.path.abspath(__file__))
+sub_path = os.path.join(src_path, '../data/stored_sub_info.txt')
+print(sub_path)
+with open(sub_path, 'a+', encoding="utf-8") as file:
     file.seek(0)
     contents = file.read()
     if TODAY_DATE not in contents:
