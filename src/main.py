@@ -2,7 +2,7 @@
 
 
 import os
-from datetime import date
+from datetime import date, datetime
 import requests
 from bs4 import BeautifulSoup
 
@@ -32,7 +32,11 @@ for i in sub_info_list:
     print(i)
 TODAY_DATE = str(date.today())
 src_path = os.path.dirname(os.path.abspath(__file__))
-sub_path = os.path.join(src_path, '../data/2023_12.txt')
+MONTH = datetime.now().month
+print(MONTH)
+YEAR = datetime.now().year
+print(YEAR)
+sub_path = os.path.join(src_path, f'../data/{YEAR}_{MONTH}.txt')
 with open(sub_path, 'a+', encoding="utf-8") as file:
     file.seek(0)
     contents = file.read()
