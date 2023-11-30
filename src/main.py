@@ -20,8 +20,8 @@ for row in table.find_all('tr'):
     for cell in row.find_all('td'):
         if SEARCHED_TEXT in cell.text:
             sub_info = row
-        else:
-            sub_info = 'Beze zmen.'
+if sub_info is None:
+    sub_info = 'Beze zmen.'
 sub_info_list = []
 if sub_info != 'Beze zmen.':
     for data in sub_info.find_all('tr'):
@@ -32,7 +32,7 @@ for i in sub_info_list:
     print(i)
 TODAY_DATE = str(date.today())
 src_path = os.path.dirname(os.path.abspath(__file__))
-sub_path = os.path.join(src_path, '../data/stored_sub_info.txt')
+sub_path = os.path.join(src_path, '../data/2023_12.txt')
 with open(sub_path, 'a+', encoding="utf-8") as file:
     file.seek(0)
     contents = file.read()
