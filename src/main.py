@@ -33,9 +33,7 @@ for i in sub_info_list:
 TODAY_DATE = str(date.today())
 src_path = os.path.dirname(os.path.abspath(__file__))
 MONTH = datetime.now().month
-print(MONTH)
 YEAR = datetime.now().year
-print(YEAR)
 sub_path = os.path.join(src_path, f'../data/{YEAR}_{MONTH}.txt')
 with open(sub_path, 'a+', encoding="utf-8") as file:
     file.seek(0)
