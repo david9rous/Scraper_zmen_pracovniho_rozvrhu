@@ -49,5 +49,3 @@ with open(sub_path, 'a+', encoding="utf-8") as file:
             file.write('\n')
         file.write('\n')
 
-        """Test
-viceradkoveho stringu a taky ulozeni tokenu"""
