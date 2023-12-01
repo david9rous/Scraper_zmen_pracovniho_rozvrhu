@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 
 
 response = requests.get("https://zsrovniny.bakalari.cz/next/zmeny.aspx")
+sub_info = None
 if response.status_code == 200:
     print("Status: OK")
 else:
